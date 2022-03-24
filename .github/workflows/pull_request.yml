@@ -1,7 +1,7 @@
 on: pull_request
 name: Pull Request Status Checks
 jobs:
-  pRStatusGiphy:
+  giphy:
     name: PR Status Giphy
     runs-on: ubuntu-latest
     steps:
