@@ -125,7 +125,9 @@ function postCommentWithGif(gif) {
   console.log("Posting comment with gif...");
   return axios.post(
     githubPrCommentsUri,
-    { body: `![${gif.title}](${gif.images.original.webp})\n\n${commentFooter}` },
+    { 
+      body: `![${gif.title}](${gif.images.original.webp})\n\n${commentFooter}`
+    },
     {
       headers: githubApiHeaders
     }

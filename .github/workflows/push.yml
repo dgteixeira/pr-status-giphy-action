@@ -5,8 +5,8 @@ jobs:
     name: Node Lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@master
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
         node-version: 10.x
     - run: npm install
@@ -17,7 +17,7 @@ jobs:
     name: Docker Lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
     - uses: luke142367/Docker-Lint-Action@v1.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -26,14 +26,14 @@ jobs:
     name: Shell Lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
     - uses: ludeeus/action-shellcheck@master
   docker_build:
     needs: [npm_lint, docker_lint, shell_lint]
     name: Docker Build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
     - run: docker build -t pr-status-giphy-action .
   docker_tag_publish:
     needs: [docker_build]
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.ref,'main')
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
     - uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: docker.pkg.github.com/jzweifel/pr-status-giphy-action/pr-status-giphy-action
