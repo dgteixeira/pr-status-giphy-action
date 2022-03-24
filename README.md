@@ -1,5 +1,7 @@
 # Pull Request Status Giphy Action Fork - Image URL Update for GitHub
 
+This is a fork from [jzweifel's action](https://github.com/jzweifel/pr-status-giphy-action), where I had to change the type of image to get, so it can show on GitHub PR comments.
+
 A GitHub Action that displays a random thumbs up or thumbs down gif from Giphy when all checks on a Pull Request complete.
 
 It will automatically clean up an existing comment before making a new one if checks are re-run.
@@ -16,12 +18,12 @@ Works best when used in a workflow that runs on the `pull_request` event.
 on: pull_request
 name: Pull Request Status Checks
 jobs:
-  pRStatusGiphy:
+  giphy:
     name: PR Status Giphy
     runs-on: ubuntu-latest
     steps:
     - name: PR Status Giphy
-      uses: jzweifel/pr-status-giphy-action@master
+      uses: dgteixeira/pr-status-giphy-action@main
       env:
         GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
