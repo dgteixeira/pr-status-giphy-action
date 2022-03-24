@@ -1,4 +1,4 @@
-# Pull Request Status Giphy Action Fork - Image URL Update for GitHub
+# Pull Request Status Giphy Action v2
 
 This is a fork from [jzweifel's action](https://github.com/jzweifel/pr-status-giphy-action), where I had to change the type of image to get, so it can show on GitHub PR comments.
 

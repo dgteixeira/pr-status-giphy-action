@@ -1,0 +1,13 @@
+name: 'Pull Request Status Giphy Action v2'
+description: 'A GitHub Action that displays a random thumbs up or thumbs down gif from Giphy when all checks on a Pull Request complete.'
+author: 'dgteixeira'
+inputs:
+  GITHUB_TOKEN:
+    description: 'Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}'
+    required: true
+  GIPHY_API_KEY:
+    description: 'Your secret Giphy Api Key.'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
