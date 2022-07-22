@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
-const axios = require('axios');
+const axios = require('axios')
 
-const NEUTRAL_ERROR_CODE = process.env.GITHUB_WORKFLOW ? 78 : 0;
+const NEUTRAL_ERROR_CODE = process.env.GITHUB_WORKFLOW ? 78 : 0
 
 const githubEventPath = process.env.GITHUB_EVENT_PATH || ''
 const githubEvent = githubEventPath ? require(githubEventPath) : ''
@@ -41,7 +41,7 @@ function fetchChecks () {
  * @return {string} Aggregate status of all checks -- one of 'FAILURE', 'IN_PROGRESS', or 'SUCCESS'
  */
 function getStatusOfChecks ({ data }) {
-  const filteredChecks = data.check_runs.filter(cr => cr.name !== githubAction);
+  const filteredChecks = data.check_runs.filter(cr => cr.name !== githubAction)
   const failedChecks = filteredChecks.filter(
     cr => cr.status === 'completed' && cr.conclusion === 'failure'
   )
@@ -82,9 +82,9 @@ function deleteComment (comment) {
 function deleteCommentsFromAction (comments) {
   const filteredComments = comments.filter(comment =>
     comment.body.includes(commentFooter)
-  );
+  )
 
-  if (!filteredComments.length) return Promise.resolve();
+  if (!filteredComments.length) return Promise.resolve()
 
   console.log(
     `Found ${filteredComments.length} existing comment(s). Deleting...`
@@ -97,7 +97,7 @@ function deleteCommentsFromAction (comments) {
  * @return {Promise} Promise representing the deletion of existing comments left by this action on a Pull Request.
  */
 function deleteExistingComments () {
-  return getIssueComments().then(deleteCommentsFromAction);
+  return getIssueComments().then(deleteCommentsFromAction)
 }
 
 /**
@@ -131,7 +131,7 @@ function postCommentWithGif (gif) {
     {
       headers: githubApiHeaders
     }
-  );
+  )
 }
 
 /**
@@ -160,9 +160,9 @@ function scanChecksAndPostGif () {
         case 'IN_PROGRESS':
           return new Promise(resolve => setTimeout(resolve, 5000)).then(
             scanChecksAndPostGif
-          );
+          )
       }
-    });
+    })
 }
 
 if (
@@ -173,7 +173,7 @@ if (
     `GitHub event payload not found or Pull Request event does not have desired action. Action was ${
       githubEvent.action
     }.`
-  );
+  )
   process.exit(NEUTRAL_ERROR_CODE)
 }
 
@@ -181,14 +181,14 @@ console.log(
   `Running ${githubAction} for Pull Request #${
     githubEvent.number
   } triggered by action ${githubEvent.action}.`
-);
+)
 
 scanChecksAndPostGif()
   .then(() => process.exit(0))
   .catch(error => {
     console.log(error)
     process.exit(1)
-  });
+  })
 
 setTimeout(() => {
   console.log('Reached maximum timeout.')
