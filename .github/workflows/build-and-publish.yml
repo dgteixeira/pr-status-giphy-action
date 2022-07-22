@@ -4,8 +4,7 @@ on:
   # Trigger this initialization when pull request is merged
   pull_request:
     types:
-      - closed  
-  workflow_dispatch:
+      - closed
 
 jobs:
   docker_build:
