@@ -3,10 +3,9 @@ name: Build and Publish
 on:
   # Trigger this initialization when Megalinter finishes
   workflow_run:
-    workflows: ["megalinter"]
-    branches: [main]
-    types: 
-      - completed
+    workflows: [MegaLinter]
+    types: [completed]
+  workflow_dispatch:
 
 jobs:
   docker_build:
