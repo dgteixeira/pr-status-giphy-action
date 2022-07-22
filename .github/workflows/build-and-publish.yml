@@ -1,15 +1,14 @@
 name: Build and Publish
 
 on:
-  # Trigger this initialization when Megalinter finishes
-  workflow_run:
-    workflows: [megalinter]
-    types: [completed]
-  workflow_dispatch:
+  # Trigger this initialization when pull request is merged
+  pull_request:
+    types:
+      - closed
 
 jobs:
   docker_build:
-    if: github.event.workflow_run.conclusion == 'success' && contains(github.ref,'main') && github.event_name == 'push'
+    if: github.event.pull_request.merged == true
     name: Docker Build
     runs-on: ubuntu-latest
     steps:
