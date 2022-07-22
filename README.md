@@ -6,12 +6,7 @@ I have to express my deepest thanks to **jzweifel** by creating this awesome act
 A GitHub Action that displays a random thumbs up or thumbs down gif from Giphy when all checks on a Pull Request complete.
 
 It will automatically clean up an existing comment before making a new one if checks are re-run.
-
 Works best when used in a workflow that runs on the `pull_request` event.
-
-![thumbs-up-pr](media/thumbs-up-pr.gif)
-
-![thumbs-down-pr](media/thumbs-down-pr.gif)
 
 ## Usage
 
@@ -34,6 +29,16 @@ jobs:
 
 - `GITHUB_TOKEN` - **Required**.
 - `GIPHY_API_KEY` - **Required**. Your secret Giphy Api Key. You can create this key [here](https://developers.giphy.com/dashboard/?create=true).
+
+## How it looks
+
+### Status Checks OK
+
+![thumbs-up-pr](media/thumbs-up-pr.gif)
+
+### Status Checks NOT OK
+
+![thumbs-down-pr](media/thumbs-down-pr.gif)
 
 ## License
 
