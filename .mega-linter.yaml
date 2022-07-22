@@ -1,0 +1,22 @@
+# Configuration file for Mega-Linter
+# See all available variables at https://oxsecurity.github.io/megalinter/configuration/ and in linters documentation
+
+DEFAULT_BRANCH: main # Usually master or main
+# ENABLE: # If you use ENABLE variable, all other languages/formats/tooling-formats will be disabled by default
+# ENABLE_LINTERS: # If you use ENABLE_LINTERS variable, all other linters will be disabled by default
+ENABLE_LINTERS:
+  - JAVASCRIPT_ES
+  - JAVASCRIPT_STANDARD
+  - JAVASCRIPT_PRETTIER
+  - BASH_SHELLCHECK
+  - GROOVY_NPM_GROOVY_LINT
+  - ACTION_ACTIONLINT
+  - DOCKERFILE_HADOLINT       
+  - MARKDOWN_MARKDOWNLINT
+  - EDITORCONFIG_EDITORCONFIG_CHECKER
+  - CREDENTIALS_SECRETLINT
+  - REPOSITORY_GIT_DIFF
+SHOW_ELAPSED_TIME: false
+FILEIO_REPORTER: false
+IGNORE_GITIGNORED_FILES: true # If set to true, Mega-Linter will skip files ignored by git using .gitignore file
+MARKDOWN_MARKDOWNLINT_CONFIG_FILE: LINTER_DEFAULT

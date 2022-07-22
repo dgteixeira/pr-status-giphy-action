@@ -20,7 +20,7 @@ More information for each package can be found at `https://www.npmjs.com/package
 
 ## Node
 
-```
+```text
 Node.js is licensed for use as follows:
 
 """

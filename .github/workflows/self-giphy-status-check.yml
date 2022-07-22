@@ -1,5 +1,5 @@
 on: pull_request
-name: Pull Request Status Checks
+name: Giphy Status Check Validation
 jobs:
   giphy:
     name: PR Status Giphy

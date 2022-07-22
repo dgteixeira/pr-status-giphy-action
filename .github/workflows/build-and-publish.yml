@@ -1,0 +1,30 @@
+name: Build and Publish
+
+on:
+  # Trigger this initialization when Megalinter finishes
+  workflow_run:
+    workflows: [MegaLinter]
+    types: [completed]
+  workflow_dispatch:
+
+jobs:
+  docker_build:
+    #if: github.event.workflow_run.conclusion == 'success'
+    name: Docker Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: docker build -t pr-status-giphy-action .
+  docker_tag_publish:
+    needs: [docker_build]
+    name: Docker Tag and Publish
+    runs-on: ubuntu-latest
+    if: contains(github.ref,'main')
+    steps:
+    - uses: actions/checkout@v3
+    - uses: elgohr/Publish-Docker-Github-Action@v4
+      with:
+        name: dgteixeira/pr-status-giphy-action/pr-status-giphy-action
+        password: ${{ github.actor }}
+        username: ${{ secrets.GITHUB_TOKEN }}
+        registry: ghcr.io
