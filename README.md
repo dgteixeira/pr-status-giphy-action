@@ -1,6 +1,7 @@
 # Pull Request Status Giphy Action v2
 
 This is a fork from [jzweifel's action](https://github.com/jzweifel/pr-status-giphy-action), where I had to change the type of image to get, so it can show on GitHub PR comments.
+I have to express my deepest thanks to **jzweifel** by creating this awesome action!
 
 A GitHub Action that displays a random thumbs up or thumbs down gif from Giphy when all checks on a Pull Request complete.
 
@@ -14,7 +15,7 @@ Works best when used in a workflow that runs on the `pull_request` event.
 
 ## Usage
 
-```
+```yaml
 on: pull_request
 name: Pull Request Status Checks
 jobs:
