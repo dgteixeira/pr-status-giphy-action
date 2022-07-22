@@ -5,12 +5,12 @@ COPY ./src /action
 
 ENTRYPOINT ["/action/entrypoint.sh"]
 
-LABEL version="1.0.3"
+LABEL version="1.2.0"
 LABEL "repository"="https://github.com/dgteixeira/pr-status-giphy-action"
 LABEL "homepage"="http://github.com/dgteixeira"
 LABEL "maintainer"="Diogo Teixeira"
 
 LABEL "com.github.actions.name"="Pull Request Status Giphy Action v2"
-LABEL "com.github.actions.description"="A GitHub Action that displays a random thumbs up or thumbs down gif from Giphy when all checks on a Pull Request complete."
+LABEL "com.github.actions.description"="A GitHub Action that displays a random thumbs up or thumbs down gif from Giphy when all checks on a Pull Request complete, forked from https://github.com/jzweifel/pr-status-giphy-action"
 LABEL "com.github.actions.icon"="check"
 LABEL "com.github.actions.color"="gray-dark"

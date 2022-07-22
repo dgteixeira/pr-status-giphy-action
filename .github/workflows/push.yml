@@ -42,9 +42,9 @@ jobs:
     if: contains(github.ref,'main')
     steps:
     - uses: actions/checkout@v3
-    - uses: elgohr/Publish-Docker-Github-Action@master
+    - uses: elgohr/Publish-Docker-Github-Action@v4
       with:
-        name: docker.pkg.github.com/jzweifel/pr-status-giphy-action/pr-status-giphy-action
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        username: ${{ secrets.DOCKER_USERNAME }}
-        registry: docker.pkg.github.com
+        name: dgteixeira/pr-status-giphy-action/pr-status-giphy-action
+        password: ${{ github.actor }}
+        username: ${{ secrets.GITHUB_TOKEN }}
+        registry: ghcr.io
