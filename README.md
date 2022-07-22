@@ -1,4 +1,4 @@
-# Pull Request Status Giphy Action v2
+# Pull Request Status Checks GIF
 
 This is a fork from [jzweifel's action](https://github.com/jzweifel/pr-status-giphy-action), where I had to change the type of image to get, so it can show on GitHub PR comments.
 I have to express my deepest thanks to **jzweifel** by creating this awesome action!
@@ -12,13 +12,13 @@ Works best when used in a workflow that runs on the `pull_request` event.
 
 ```yaml
 on: pull_request
-name: Pull Request Status Checks
+name: Pull Request Status Checks GIF
 jobs:
   giphy:
-    name: PR Status Giphy
+    name: PR status gif
     runs-on: ubuntu-latest
     steps:
-    - name: PR Status Giphy
+    - name: PR status gif
       uses: dgteixeira/pr-status-giphy-action@main
       env:
         GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
