@@ -1,6 +1,6 @@
 # To publish the action, follow this:https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace
 name: 'Pull Request Status Checks GIF'
-description: 'A GitHub Action that displays a random thumbs up or thumbs down gif, from Giphy, based on the status of the Pull Request status checks.'
+description: 'GitHub Action that displays a random thumbs up or thumbs down gif, from Giphy, based on the status of the PR status checks.'
 author: 'dgteixeira'
 inputs:
   GITHUB_TOKEN:
