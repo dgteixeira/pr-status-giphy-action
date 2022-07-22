@@ -1,8 +1,8 @@
 on: pull_request
-name: Giphy Status Check Validation
+name: giphy status check
 jobs:
   giphy:
-    name: PR Status Giphy
+    name: self run
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3

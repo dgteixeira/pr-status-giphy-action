@@ -3,7 +3,7 @@ name: Build and Publish
 on:
   # Trigger this initialization when Megalinter finishes
   workflow_run:
-    workflows: [MegaLinter]
+    workflows: [megalinter]
     types: [completed]
   workflow_dispatch:
 
