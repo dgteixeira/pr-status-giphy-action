@@ -10,6 +10,8 @@ Works best when used in a workflow that runs on the `pull_request` event.
 
 ## Usage
 
+### Simple run based on PR
+
 ```yaml
 on: pull_request
 name: Pull Request Status Checks GIF
@@ -19,7 +21,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: PR status gif
-      uses: dgteixeira/pr-status-giphy-action@main
+      uses: dgteixeira/pr-status-giphy-action@v2
+      env:
+        GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+### After a specific workflow
+
+```yaml
+on:
+  workflow_run:
+    workflows: [workflow-name]
+    types:
+      - completed
+
+name: Pull Request Status Checks GIF
+jobs:
+  giphy:
+    name: PR status gif
+    runs-on: ubuntu-latest
+    steps:
+    - name: PR status gif
+      uses: dgteixeira/pr-status-giphy-action@v2
       env:
         GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
