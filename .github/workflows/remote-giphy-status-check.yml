@@ -1,0 +1,13 @@
+on: pull_request
+name: giphy status check remote
+jobs:
+  giphy:
+    name: remote run
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: PR Status Giphy
+      uses: dgteixeira/pr-status-giphy-action@v2
+      env:
+        GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
