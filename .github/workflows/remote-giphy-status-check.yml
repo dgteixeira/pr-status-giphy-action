@@ -1,11 +1,10 @@
 on: pull_request
-name: giphy status check remote
+name: giphy status check remote run
 jobs:
   giphy:
-    name: remote run
+    name: giphy status check remote run
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
     - name: PR Status Giphy
       uses: dgteixeira/pr-status-giphy-action@v2
       env:
