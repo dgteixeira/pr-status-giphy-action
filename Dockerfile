@@ -1,4 +1,4 @@
-FROM node:16-slim
+FROM node:19-slim
 
 COPY LICENSE README.md THIRD_PARTY_NOTICE.md /
 COPY ./src /action
